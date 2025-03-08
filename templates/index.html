@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Vincula el archivo CSS -->
+    <link rel="stylesheet" href="../static/css/login.css">
+    <!-- Vincula el archivo JavaScript -->
+    <script defer src="../static/js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <img src="../static/img/SoLuna logo (1).png" alt="Logo SoLuna" class="logo">
+            <h1 class="main-title">Tienda SoLuna</h1>
+        </header>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form  action="/login" method="POST">
+                <input type="text" name="username" placeholder="Usuario" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit" id="login-button">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
