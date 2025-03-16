@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, request, session #redirect, #url_for
+from flask import Flask, flash, render_template, request, session, redirect, url_for
 import mysql.connector
 from datetime import datetime
 #import bcrypt 
@@ -47,6 +47,18 @@ def login():
         # Cambia a 'username' para acceder correctamente al nombre del usuario
         session['username'] = Nombres
         return render_template('Registrousuario.html')
+
+
+@app.route('/profile') #Ruta que muestra mensaje de bienvenida
+def profile():
+    if 'username' in session:
+        return f'Bienvenido, {session["username"]}! <a href="/logout">Cerrar sesión</a>'
+    return redirect(url_for('login'))
+
+@app.route('/logout') #Destruir inicio de sesion
+def logout():
+    session.pop('username', None)  # Eliminar el nombre de usuario de la sesión
+    return render_template(('index.html'))
 
 
 

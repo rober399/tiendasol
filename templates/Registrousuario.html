@@ -9,10 +9,14 @@
 <body>
 
 <div class="parent">
-    <div class="div1">
-        <h1>Logo</h1> 
+    
+    <div class="username-container">
+        {% if 'username' in session %}
+            <h1>Bienvenido, {{ session['username'] }}!</h1> <!-- Mostrar nombre de usuario -->
+        {% endif %}
     </div>
 
+    
     <div class="div2">
         <nav class="navbar">
             <ul>
@@ -21,6 +25,11 @@
                 <li><a href="#">Productos</a></li>
                 <li><a href="#">Categorías</a></li>
                 <li><a href="#">Órdenes</a></li>
+                {% if 'username' in session %}
+                    <li><a href="/logout" class="logout-button">Cerrar sesión</a></li> <!-- Botón de cerrar sesión -->
+                {% else %}
+                    <li><a href="/login">Iniciar sesión</a></li> <!-- Enlace a iniciar sesión si no hay sesión -->
+                {% endif %}
             </ul>
         </nav>
     </div>
@@ -56,7 +65,11 @@
     </div>
 </div>
     
-   
+<script>
+    window.onpopstate = function(event) {
+        window.location.href = '/'; // Redirige a la página de inicio siempre que se de click en la pagina
+    };
+</script>
     <script src="script.js"></script>
 </body>
 </html>

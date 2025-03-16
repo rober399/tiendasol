@@ -18,9 +18,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera alrededor */
     margin-top: 20px; /* Añade un margen superior */
 }
-h1{
-    color: blue;
-}
+
 /* Estilo del encabezado */
 h2 {
     text-align: center; /* Centra el texto del encabezado */
@@ -57,6 +55,16 @@ button {
 button:hover {
     background-color: #45a049; /* Color de fondo ligeramente más oscuro */
 }
+
+
+ /* Estilos para el nombre de usuario */
+ .username-container {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espaciado */
+    text-align: right; /* Alinear a la derecha */
+}
+
 
 /* Estiliza la barra de navegación */
 .navbar {
@@ -107,17 +115,19 @@ button:hover {
 }
 
 /* Estilo para el área del encabezado (div1) */
-.div1 {
+.username-container {
     grid-area: header; /* Área del encabezado */
     background-color: #333; /* Color de fondo oscuro */
     color: white; /* Texto blanco */
-    padding: 20px; /* Espaciado interno */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 200px; /* Espacio superior */
     text-align: center; /* Centra el texto */
 }
 
 /* Estilo para el área del menú (div2) */
 .div2 {
     grid-area: menu; /* Área del menú */
+    margin-top: -70px;
 }
 
 /* Estilo para el área principal (div3) */
