@@ -17,22 +17,41 @@
     </div>
 
     
-    <div class="div2">
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Usuario</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Categorías</a></li>
-                <li><a href="#">Órdenes</a></li>
-                {% if 'username' in session %}
-                    <li><a href="/logout" class="logout-button">Cerrar sesión</a></li> <!-- Botón de cerrar sesión -->
-                {% else %}
-                    <li><a href="/login">Iniciar sesión</a></li> <!-- Enlace a iniciar sesión si no hay sesión -->
-                {% endif %}
+    <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+        <li>
+            <a href="#">Productos</a>
+            <ul class="submenu">
+                <li><a href="#">Nuevo producto</a></li>
+                <li><a href="#">Lista de Productos</a></li>
+                
             </ul>
-        </nav>
-    </div>
+        </li>
+        <li>
+            <a href="#">Categorias</a>
+            <ul class="submenu">
+                <li><a href="#">Nueva Categoria</a></li>
+                <li><a href="#">Lista de Categorias</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Usuarios</a>
+            <ul class="submenu">
+                <li><a href="#">Nuevo Usuario</a></li>
+                <li><a href="#">Lista de Usuarios</a></li>
+            </ul>
+        </li>
+       
+       
+        {% if 'username' in session %}
+        <li><a href="/logout" class="logout-button">Cerrar sesión</a></li> <!-- Botón de cerrar sesión -->
+        {% else %}
+        <li><a href="/login">Iniciar sesión</a></li> <!-- Enlace a iniciar sesión si no hay sesión -->
+        {% endif %}
+    </ul>
+
+  
     <div class="div3">
         
     <div class="container">

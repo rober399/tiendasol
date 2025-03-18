@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Desplegable</title>
+    <style>
+        /* Estilos del menú */
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu > li {
+            display: inline-block;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            min-width: 150px;
+        }
+
+        .submenu li {
+            display: block;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   
+</body>
+</html>
