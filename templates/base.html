@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Página{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+<div class="parent">
+    
+    <div class="username-container">
+        {% if 'username' in session %}
+            <h1>Bienvenido, {{ session['username'] }}!</h1>
+        {% endif %}
+    </div>
+
+    <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+        <li>
+            <a href="#">Productos</a>
+            <ul class="submenu">
+                <li><a href="/templates/Registrousuario.html">Nuevo producto</a></li>
+                <li><a href="Listausuario.html">Lista de Productos</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Categorias</a>
+            <ul class="submenu">
+                <li><a href="#">Nueva Categoria</a></li>
+                <li><a href="#">Lista de Categorias</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Usuarios</a>
+            <ul class="submenu">
+                <li><a href="{{ url_for('usuarios.AgregarAdmin') }}">Nuevo Usuario</a></li>
+                <li><a href="{{ url_for('usuarios.Listausuario') }}">Lista de Usuarios</a></li>
+            </ul>
+        </li>
+        {% if 'username' in session %}
+        <li><a href="/logout" class="logout-button">Cerrar sesión</a></li>
+        {% else %}
+        <li><a href="/login">Iniciar sesión</a></li>
+        {% endif %}
+    </ul>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="div4">FOOTER</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

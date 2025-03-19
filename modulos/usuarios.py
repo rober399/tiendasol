@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, request, session, redirect, url_for
+from flask import Flask, Blueprint,flash, render_template, request, session, redirect, url_for
 from datetime import datetime
 from app import get_db_connection
 from . import usuarios_bp
@@ -9,7 +9,11 @@ app = Flask(__name__)
 usuarios_bp = Blueprint('usuarios', __name__)
 
 
-# Registrar Usuario
+#from flask import Blueprint, request, render_template, redirect, url_for, flash
+from datetime import datetime
+
+usuarios_bp = Blueprint('usuarios', __name__)
+
 @usuarios_bp.route('/AgregarAdmin', methods=["GET", "POST"])
 def AgregarAdmin():
     if request.method == 'POST':
@@ -35,13 +39,29 @@ def AgregarAdmin():
             miConexion.close()  # Cerrar la conexión
 
             print("Datos Registrados")
-            return render_template('Registrousuario.html')  # Redirige a una página de éxito
+            flash('Usuario agregado exitosamente', 'success')  # Mensaje de éxito
+            return redirect(url_for('usuarios.Listausuario'))  # Redirige a la lista de usuarios
         except Exception as e:
             print(f"Error en la base de datos: {e}")
             if 'miConexion' in locals():
                 miConexion.rollback()
                 miConexion.close()  # Asegurarse de cerrar la conexión
             return "Error interno del servidor", 500
+
+    # Si es un GET, simplemente renderiza el formulario
+    return render_template('Registrousuario.html')
+
+@usuarios_bp.route('/Listausuario', methods=["GET", "POST"])
+def Listausuario():
+     # Obtener la conexión a la base de datos
+    miConexion = get_db_connection()
+    cur = miConexion.cursor()
+
+    cur.execute("SELECT id_usuario, nombre_usuario, email, fecha_registro, rol FROM usuarios")
+    datos = cur.fetchall()
+    print (datos)
+    return render_template('Listausuario.html', registros = datos)
+
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
