@@ -65,43 +65,50 @@ button:hover {
     text-align: right; /* Alinear a la derecha */
 }
 
+     /* Estilos del menú */
+     .menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #333;
+    }
 
-/* Estiliza la barra de navegación */
-.navbar {
-    background-color: #333; /* Color de fondo oscuro para la barra de navegación */
-    overflow: hidden; /* Evita que el contenido se desborde */
-    width: 100%; /* Ocupa el ancho completo */
-    margin-top: 100px; /* Añade un margen superior de 20px */
-}
+    .menu li {
+        position: relative;
+    }
 
-/* Estilo de la lista de navegación */
-.navbar ul {
-    list-style-type: none; /* Elimina los puntos de lista */
-    margin: 0; /* Elimina el margen */
-    padding: 0; /* Elimina el relleno */
-    display: flex; /* Usa el modo de diseño flexbox */
-    justify-content: center; /* Centra los elementos horizontalmente */
-}
+    .menu > li {
+        display: inline-block;
+    }
 
-/* Estilo de los elementos de la lista */
-.navbar ul li {
-    display: inline; /* Muestra los elementos en línea */
-}
+    .menu a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+    }
 
-/* Estilo de los enlaces de navegación */
-.navbar ul li a {
-    display: block; /* Muestra los enlaces como bloques */
-    color: white; /* Color del texto blanco */
-    text-align: center; /* Centra el texto */
-    padding: 14px 20px; /* Añade espacio interno a los enlaces */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-}
+    .menu a:hover {
+        background-color: #575757;
+    }
 
-/* Cambio de color al pasar el mouse sobre los enlaces */
-.navbar ul li a:hover {
-    background-color: #575757; /* Color de fondo ligeramente más claro */
-}
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        min-width: 150px;
+    }
 
+    .submenu li {
+        display: block;
+    }
+
+    .menu li:hover .submenu {
+        display: block;
+    }
 /* Estilo para el contenedor principal (parent) */
 .parent {
     display: grid; /* Usa el modo de diseño grid */

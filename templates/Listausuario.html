@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Usuarios{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Lista de Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Fecha de Registro</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí iría el código para listar los usuarios -->
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro.0 }}</td>
+                <td>{{ registro.1 }}</td>
+                <td>{{ registro.2 }}</td>
+                <td>{{ registro.3 }}</td>
+                <td>{{ registro.4 }}</td>
+                <td>
+                    <a href="">Editar</a>
+                    <a href="">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor%}
+
+ {% endblock %}
