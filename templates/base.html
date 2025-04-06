@@ -8,13 +8,10 @@
 </head>
 <body>
 
+
 <div class="parent">
     
-    <div class="username-container">
-        {% if 'username' in session %}
-            <h1>Bienvenido, {{ session['username'] }}!</h1>
-        {% endif %}
-    </div>
+   
 
     <ul class="menu">
         <li><a href="#">Inicio</a></li>
@@ -47,10 +44,11 @@
     </ul>
 
     <div class="content">
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
     </div>
 
-    <div class="div4">FOOTER</div>
+    
 </div>
 
 <script src="script.js"></script>

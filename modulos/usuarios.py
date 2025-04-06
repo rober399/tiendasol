@@ -63,5 +63,15 @@ def Listausuario():
     return render_template('Listausuario.html', registros = datos)
 
 
+@usuarios_bp.route('/EliminarAdmin/<string:id>')
+def EliminarAdmin(id):
+    #return id
+    miConexion = get_db_connection()
+    cur = miConexion.cursor()
+    cur.execute("DELETE FROM usuarios WHERE id_usuario= %s",(id,))
+    miConexion.commit()
+    return redirect(url_for('usuarios.Listausuario'))
+
+
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
