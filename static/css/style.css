@@ -57,13 +57,7 @@ button:hover {
 }
 
 
- /* Estilos para el nombre de usuario */
- .username-container {
-    background-color: black; /* Fondo negro */
-    color: white; /* Texto blanco */
-    padding: 10px; /* Espaciado */
-    text-align: right; /* Alinear a la derecha */
-}
+
 
      /* Estilos del menú */
      .menu {
@@ -71,6 +65,8 @@ button:hover {
         padding: 0;
         margin: 0;
         background-color: #333;
+        margin-top: 150px;
+        
     }
 
     .menu li {
@@ -97,7 +93,7 @@ button:hover {
         position: absolute;
         background-color: #333;
         list-style-type: none;
-        padding: 0;
+        padding: 10px; /* Aumenta el área interactiva del submenú */
         margin: 0;
         min-width: 150px;
     }
@@ -123,11 +119,11 @@ button:hover {
 
 /* Estilo para el área del encabezado (div1) */
 .username-container {
+    position: relative;
     grid-area: header; /* Área del encabezado */
-    background-color: #333; /* Color de fondo oscuro */
-    color: white; /* Texto blanco */
-    padding: 10px; /* Espaciado interno */
-    margin-top: 200px; /* Espacio superior */
+    color: black; /* Texto blanco */
+    padding: -200px; /* Espaciado interno */
+    margin-top: 90px; /* Espacio superior */
     text-align: center; /* Centra el texto */
 }
 
